@@ -1,0 +1,19 @@
+node("master"){
+    stage("Clone the code from Git")
+{
+    git 'https://github.com/venkatareddy201201/testmaven.git'
+    echo 'Testmaven code cloned from Git'
+}
+}
+node("master"){
+stage("Check Files")
+{
+   sh label: '', script: 'ls -ltr'
+}
+}
+node("master"){
+stage("Run maven")
+{
+   sh label: '', script: 'mvn test'
+}
+}
